@@ -4,7 +4,7 @@
   "description": "tracking event action recorder",
   "main": "server.js",
   "scripts": {
-    "test": "npm start"
+    "start": "node server.js"
   },
   "author": "tra-nguyen",
   "license": "ISC",

@@ -3,7 +3,7 @@ const { trackingCon, trackingUninstallCon } = require('../controllers/tracking.c
 
 const router = express.Router();
 
-router.post('/kr-segment', (req, res) => trackingCon(req, res));
-router.get('/kr-segment', (req, res) => trackingUninstallCon(req, res));
+router.post('/tracking', (req, res) => trackingCon(req, res));
+router.get('/tracking', (req, res) => trackingUninstallCon(req, res));
 
 module.exports = router;

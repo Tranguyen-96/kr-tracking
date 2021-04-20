@@ -4,7 +4,9 @@ const config = require("../config/config");
 const analytics = new Analytics(config.segment.key);
 
 const trackingSer = async (body) => {
+  console.log(body)
   const { userId, anonymousId, event, properties } = body;
+  
   try {
     let trackingContent = {
       userId: '',
