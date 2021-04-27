@@ -13,12 +13,11 @@ const trackingCon = async (req, res) => {
 }
 
 const trackingUninstallCon = async (req, res) => {
-  const { userId, anonymousId } = req.query;
+  const { userId } = req.query;
 
   try {
     let body = {
       userId: userId || '',
-      anonymousId: anonymousId || '',
       event: 'kru_uninstall_application',
     }
     const service = await trackingSer(body);

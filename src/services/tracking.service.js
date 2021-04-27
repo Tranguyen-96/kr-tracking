@@ -5,22 +5,18 @@ const analytics = new Analytics(config.segment.key);
 
 const trackingSer = async (body) => {
   console.log(body)
-  const { userId, anonymousId, event, properties } = body;
-  
+  const { userId, event, properties } = body;
+
   try {
     let trackingContent = {
       userId: '',
-      anonymousId: '',
       refId: '',
       event: '',
       properties: {},
       timestamp: new Date()
     };
-    if (anonymousId) {
-      if (userId) {
-        trackingContent.userId = userId;
-      }
-      trackingContent.anonymousId = anonymousId;
+    if (userId) {
+      trackingContent.userId = userId;
     }
     if (event) {
       trackingContent.event = event;
@@ -29,7 +25,7 @@ const trackingSer = async (body) => {
       trackingContent.properties = properties;
     }
 
-    analytics.track(trackingContent);
+    await analytics.track(trackingContent);
     return {
       code: 200,
       description: 'success'
